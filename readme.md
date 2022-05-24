@@ -8,6 +8,8 @@ Change the paths at the top of  the `config/eval/cifar10.py` config file to poin
 To generate piano samples, open the `notebooks/piano.ipynb` notebook.
 Change the paths at the top of the `config/eval/piano.py` config file to point to the dataset downloaded from the dropbox link as well as the model weights and config file.
 
+The sampling settings can be set in the config files, switching between standard tau-leaping and with predictor-corrector steps.
+
 ## Training
 ### CIFAR10
 The CIFAR10 model can be trained using

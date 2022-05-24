@@ -30,7 +30,7 @@ def get_config():
 
     config.sampler = sampler = ml_collections.ConfigDict()
     sampler.name = 'ConditionalTauLeaping' # ConditionalTauLeaping or ConditionalPCTauLeaping
-    sampler.num_steps = 100
+    sampler.num_steps = 1000
     sampler.min_t = 0.01
     sampler.eps_ratio = 1e-9
     sampler.initial_dist = 'uniform'

@@ -30,13 +30,13 @@ def get_config():
     data.random_flips = False
 
     config.sampler = sampler = ml_collections.ConfigDict()
-    sampler.name = 'TauLeaping'
-    sampler.num_steps = 100
+    sampler.name = 'TauLeaping' # TauLeaping or PCTauLeaping
+    sampler.num_steps = 1000
     sampler.min_t = 0.01
     sampler.eps_ratio = 1e-9
     sampler.initial_dist = 'gaussian'
-    sampler.num_corrector_steps = 1
-    sampler.corrector_step_size_multiplier = 1.0
-    sampler.corrector_entry_time = 1.0
+    sampler.num_corrector_steps = 10
+    sampler.corrector_step_size_multiplier = 1.5
+    sampler.corrector_entry_time = 0.1
 
     return config
