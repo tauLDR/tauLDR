@@ -12,7 +12,7 @@ def get_config():
 
     config.init_model_path = None
 
-    config.device = 'gpu'
+    config.device = 'cuda'
     config.distributed = True
     config.num_gpus = 4
 
