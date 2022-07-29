@@ -12,7 +12,7 @@ def get_config():
 
     config.init_model_path = None
 
-    config.device = 'gpu'
+    config.device = 'cuda'
     config.distributed = True
     config.num_gpus = 4
 
@@ -33,7 +33,7 @@ def get_config():
     data.name = 'DiscreteCIFAR10'
     data.root = datasets_folder
     data.train = True
-    data.download = False
+    data.download = True
     data.S = 256
     data.batch_size = 128
     data.shuffle = True

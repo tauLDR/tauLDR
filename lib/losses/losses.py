@@ -1,4 +1,3 @@
-from re import I
 import torch
 import torch.nn as nn
 import lib.losses.losses_utils as losses_utils
@@ -228,23 +227,16 @@ class GenericAux():
         )
 
         sig_mean = torch.mean(- outer_sum_sig/sig_norm)
-        # sig_mean.backward(retain_graph=True)
-        # grad1a = model.net.input_conv.weight.grad[0,0,0,0].clone()
-        # grad1b = model.net.output_modules[-1].weight.grad[0,0,0,0].clone()
+
         reg_mean = torch.mean(reg_term)
-        # reg_mean.backward()
-        # grad2a = model.net.input_conv.weight.grad[0,0,0,0].clone()
-        # grad2b = model.net.output_modules[-1].weight.grad[0,0,0,0].clone()
+
 
         writer.add_scalar('sig', sig_mean.detach(), state['n_iter'])
         writer.add_scalar('reg', reg_mean.detach(), state['n_iter'])
-        # writer.add_scalar('sig grad a', grad1a.detach(), state['n_iter'])
-        # writer.add_scalar('reg grad a', (grad2a - grad1a).detach(), state['n_iter'])
-        # writer.add_scalar('sig grad b', grad1b.detach(), state['n_iter'])
-        # writer.add_scalar('reg grad b', (grad2b - grad1b).detach(), state['n_iter'])
+
 
         neg_elbo = sig_mean + reg_mean
-        # neg_elbo = torch.mean(- (outer_sum_sig/sig_norm) + reg_term)
+
 
 
         perm_x_logits = torch.permute(x_logits, (0,2,1))

@@ -33,7 +33,7 @@ def get_config():
     data.name = 'DiscreteCIFAR10'
     data.root = datasets_folder
     data.train = True
-    data.download = False
+    data.download = True
     data.S = 256
     data.batch_size = 128 # use 128 if you have enough memory or use distributed
     data.shuffle = True
